@@ -1,0 +1,147 @@
+EJERCICIO AGENDA.
+
+EJERCICIO 1
+
+1. Nombre del propietario de la agenda.
+
+/agenda/propietario/identificadores/nombre
+
+EJERCICIO 2
+
+2. Teléfono de casa del propietario.
+
+/agenda/propietario/telefonos/casa
+
+EJERCICIO 3
+
+3. Nombres y apellidos de los contactos de la agenda
+
+/agenda/contactos/persona/identificadores/nombre
+/agenda/contactos/persona/identificadores/apellidos
+
+EJERCICIO 4
+
+4. Nombre e identificador de cada contacto.
+
+/agenda/contactos/persona/@id
+/agenda/contactos/persona/identificadores/nombre
+
+EJERCICIO 5
+5. Datos del contacto con identificador p02.
+
+/agenda/contactos/persona[@id=’p02’]
+
+EJERCICIO 6 
+
+6. Identificadores de los contactos que tienen móvil.
+
+/agenda/contactos/persona[telefonos/movil]/@id
+
+
+
+EJERCICIO CICLOS_2
+
+1. Nombre del instituto.
+
+/ies/nombre
+
+2. Página web del instituto.
+
+/ies/web
+
+3. Nombre de los ciclos formativos.
+
+/ies/ciclos/ciclo/nombre
+
+4. Siglas por las que se conocen los ciclos formativos.
+
+/ies/ciclos/ciclo/@id
+
+5. Años en los que se publicaron los decretos de título de los ciclos formativos.
+
+/ies/ciclos/ciclo/decretoTitulo
+
+6. Ciclos formativos de Grado Medio (se trata de obtener el elemento completo).
+
+/ies/ciclos/ciclo[grado=’Medio’]
+
+7. Nombre de los ciclos formativos de Grado Superior.
+
+/ies/ciclos/ciclo[grado=’Superior’]
+
+8. Nombre de los ciclos formativos anteriores a 2010.
+
+/ies/ciclos/ciclo[decretoTitulo/@año<2010]/nombre
+
+9. Nombre de los ciclos formativos de 2008 o 2010.
+
+/ies/ciclos/ciclo[decretoTitulo/@año=2008] or
+decretoTitulo/@año=2010]/nombre
+
+
+EJERCICIO INVENTARIO₂
+
+1. Extraer todos los elementos <peso> (etiqueta incluida).+
+
+/inventario/producto/peso
+
+2. Extraer las cantidades de todos los elementos <peso> (sin la etiqueta <peso>).
+
+/inventario/producto/peso/text()
+
+
+3. Extraer el peso del último elemento.
+
+/inventario/producto[last()]/peso/text()
+
+4. Extraer las distintas unidades en las que se han almacenado los pesos.
+
+/producto/peso/@unidad
+
+5. Extraer el penúltimo codigo.
+
+/inventario/producto[last()-1]/@codigo
+
+6. Extraer el peso del elemento cuyo codigo sea AAA-111.
+
+inventario/producto[@codigo=’AAA-111’]peso/text()
+
+7. Extraer el nombre de los productos que hayan puesto el peso en gramos.
+
+inventario/producto[peso/@unidad=’g’/nombre/text()
+
+8. Extraer el codigo de los productos cuyo nombre sea Monitor.
+
+inventario/producto[nombre=’Monitor’]/@codigo
+
+9. Extraer el código de los productos que pesen más de un cuarto de kilo.
+
+inventario/producto[peso[@unidad=’kg’ and number() >0.25/@codigo
+
+
+EJERCICIO MODULOS₂
+
+1. Nombre de los módulos que se imparten en el instituto.
+
+/ies/modulos/modulo/nombre
+
+2. Nombre de los módulos del ciclo ASIR.
+
+/ies/modulos/modulo[ciclo=’ASIR’]/nombre
+
+3. Nombre de los módulos que se imparten en el segundo curso de cualquier ciclo.
+
+/ies/modulos/modulo[curso=’2’]/nombre
+
+4. Nombre de los módulos de menos de 5 horas semanales.
+
+/ies/modulos/modulo[horasSemanales=<5]/nombre
+
+5. Nombre de los módulos que se imparten en el primer curso de ASIR.
+
+/ies/modulos/modulo[curso=’1’ and ciclo=’ASIR’]/nombre
+
+
+6. Horas semanales de los módulos de más de 3 horas semanales.
+
+/ies/modulos/modulo[horasSemanales >3]/horasSemanales
