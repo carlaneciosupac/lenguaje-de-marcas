@@ -1,0 +1,170 @@
+Carla Neciosup Acebedo
+
+Ejercicio 1.
+Escenario de equipamiento informatico (básico).
+1. As máquinas que contén o documento.
+/equipos/máquina/@nome
+2. A información correspondente ao hardware das máquinas.
+/equipos/máquina/hardware
+3. A información de configuración das máquinas.
+/equipos/máquina/config
+4. A lista de fabricantes dos equipos.
+/equipos/máquina/hardware/fabricante/text()
+5. A lista de discos que conteñen.
+/equipos/máquina/hardware/disco
+6. Os enderezos IP
+/equipo/máquina/config/IP/text()
+7. Os nomes das máquinas.
+/equipos/máquina/@nome
+8. Os nomes das máquinas que teñan gravadora óptica (DVD).
+/equipos/máquina[hardware/gravadora[@tipo=’DVD’]]/@nome
+9. O sistema operativo das máquinas nas que figure o "role".
+/equipos/máquina7config[role]/OS/text()
+
+
+Ejercicio 2.
+Escenario de equipamiento informatico (avanzado).
+
+1. Os discos de tecnoloxía "SCSI".
+
+
+2. O nome do sistema operativo da máquina con IP "192.168.10.45".
+
+3. Os atributos que figuran nos procesadores da marca "AMD".
+
+
+4. Os textos (soamente) que figuran na configuración (elemento "config") do equipo de nome "COPERNICO".
+
+
+5. As máquinas de tipo "Semitorre" con sistema operativo "Windows XP".
+
+
+6. Os fabricantes das máquinas que teñan 4GB de memoria "DDR2".
+
+
+7. O sistema operativo das máquinas nas que figure o número de núcleos do procesador.
+
+
+8. Os nomes das máquinas que empreguen memoria con tecnoloxía "DDR2".
+
+
+9. As máquinas con procesador da marca "Intel" e gravadora de DVD.
+
+
+10. A configuración daquelas máquinas nas que figura un gateway
+
+
+11. As máquinas con nome comezando por "PC".
+
+
+12. O nome das máquinas con máis de un disco duro.
+
+
+13. A suma dos GB de memoria RAM de todas as máquinas.
+
+
+14. A suma das capacidades dos discos duros de tipo "SCSI".
+
+
+15. Os nomes das máquinas das que se coñeza a súa cantidade de memoria, pero non a tecno-loxía desta.
+
+
+16. As máquinas con sistema operativo da familia Windows e gravadora de DVD.
+
+
+17. As máquinas nas que non figure o sistema operativo.
+
+
+18. O nome da máquina e do SO daquelas máquinas con máis de un disco duro.
+
+
+19. A configuración daquelas máquinas nas que figura unha dirección IP pero non o gateway.
+
+
+20. Os elementos baleiros (non conteñen texto).
+
+
+21. As direccións IP dentro da rede 192.168.10.0/24.
+
+
+22. Os nomes das máquinas con procesador multinúcleo e 2GB ou menos de memoria.
+
+
+23. As máquinas que teñan disco duro (un ou varios) con capacidade total maior de 1000GB.
+
+
+24. As máquinas que teñan disco duro (un ou varios) con capacidade total menor de 80GB.
+
+
+
+
+
+
+Ejercicio 3.
+Listado_contas.
+1. Extraer la cantidad depositada en el fondo con cuenta asociada 20-A.
+/listado/fondo[cuentaasociada='20-A']/datos/cantidaddepositada
+2. Extraer un listado sin etiquetas de todas las monedas usadas por los distintos fondos.
+/listado/fondo/datos/moneda/text()
+3. Extraer el DNI de las cuentas que usen dólares como moneda de base.
+/listado/cuenta[saldoactual/@moneda='Dólares']/titular/@dni
+4. Extraer toda la información de los fondos que usen Euros por un valor inferior a 2500.
+/listado/fondo[datos/moneda='Euros' and datos/cantidaddepositada < 2500]
+
+Ejercicio 4.
+Universidade.
+
+1. Nombre de la universidad.
+/universidad/nombre
+2. Pais de la universidad.
+/universidad/pais
+3. Nombres de las carreras.
+/universidad/carreras/carrera/nombre
+4. Años de plan de estudio de las carreras.
+/universidad/carreras/carrera/plan
+5. Nombres de todos los alumnos.
+/universidad/alumnos/alumno/nombre
+6. Identificadores de todas las carreras.
+/universidad/carreras/carrera/@id
+7. Datos de la carrera cuyo id es c01.
+/universidad/carreras/carrera[@id='c01']
+8. Centro en que se estudia de la carrera cuyo id es c02.
+/universidad/carreras/carrera/@id
+9. Nombre de las carreras que tengan subdirector.
+/universidad/carreras/carrera/subdirector
+10. Nombre de los alumnos que estén haciendo proyecto.
+/universidad/alumnos/alumno[estudios/proyecto]/nombre/text()
+11. Códigos de las carreras en las que hay algún alumno matriculado.
+/universidad/alumnos/alumno/estudios/carrera/@codigo
+12. Apellidos y nombre de los alumnos con beca.
+/universidad/alumnos/alumno[@beca=’si’]/concat(apellido1, ‘ ‘apellido2, ‘ , ‘,nombre)
+13. Nombre de las asignaturas de la titulación c04.
+/universidad/alumnos/alumno/estudios/asignatura[@titulacion='c04']/nombre/text()
+14. Nombre de las asignaturas de segundo trimestre.
+/universidad/asignaturas/asignatura[trimestre = 2]/nombre
+15. Nombre de las asignaturas que no tienen 4 créditos teóricos.
+/universidad/asignaturas/asignatura[not(creditos_teoricos = 4)]/nombre
+16. Código de la carrera que estudia el último alumno.
+/universidad/alumnos/alumno[last()]/estudios/carrera/@codigo
+17. Código de las asignaturas que estudian mujeres.
+/universidad/alumnos/alumno[sexo='Mujer']/estudios/asignaturas/asignatura/@codigo
+18. Nombre de los alumnos que están matriculados en la asignatura a02.
+/universidad/alumnos/alumno[sexo='Mujer']/estudios/asignaturas/asignatura/@codigo
+19. Códigos de las carreras que estudian los alumnos matriculados en alguna asignatura.
+/universidad/alumnos../carrera/@codigo
+20. Apellidos de todos los hombres.
+/universidad/alumnos/alumno[sexo='Hombre']/(apellido1 | apellido2)
+21. Nombre de la carrera que estudia Víctor Manuel.
+/universidad/alumnos/alumno[nombre='Víctor Manuel']/estudios/carrera/nombre
+22. Nombre de las asignaturas que estudia Luisa.
+/universidad/alumnos/alumno[nombre='Luisa']/estudios/asignaturas/asignatura/nombre
+23. Primer apellido de los alumnos matriculados en Ingeniería del Software.
+/universidad/asignaturas/asignatura[@codigo='a02']/../../alumno/(apellido1)[1]
+24. Nombre de las carreras que estudian los alumnos matriculados en la asignatura Tecnología de los Alimentos.
+/universidad/asignaturas/asignatura[nombre='Tecnología de los Alimentos']/../carrera/nombre
+25. Nombre de los alumnos matriculados en carreras que no tienen subdirector.
+/universidad/carreras/carrera[not(subdirector)]/../alumno/nombre
+26. Nombre de las alumnos matriculados en asignaturas con 0 créditos prácticos y que estudien la carrera de I.T. Informática.
+/universidad/alumnos/alumno[sexo='Mujer' and estudios/asignaturas/asignatura[creditos_practicos=0 and../carrera/@codigo='c01']]/nombre
+27. Nombre de los alumnos que estudian carreras cuyos planes son anteriores a 2002.
+/universidad/carreras/carrera[plan < 2002]/../alumno/nombre
