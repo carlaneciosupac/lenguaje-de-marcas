@@ -1,5 +1,5 @@
 # lenguaje-de-marcas
-## prueba
+## Recopilatorio exercicios XPath
 
 # * o grao de completitude (se che quedou algún apartado que non souperas solucionar ou que dubidas de se a resposta é correcta). 
 Los más dificiles pra mi son escenario de equipamento informático (avanzado) y universidade.De hecho universidade lo hice
